@@ -6,6 +6,7 @@ def fib(n):
     return fib(n - 1) + fib(n - 2)
 
 
+number = int(input('How many numbers of Fibonacci sequence you want? '))
 print('Fibonacci sequance:')
-for i in range(1, 31):
+for i in range(1, number + 1):
     print(i, '. ', fib(i - 1))
