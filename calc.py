@@ -35,9 +35,8 @@ while True:
         quit()
 
     try:
-        y = int(input('Enter a number (or a lettttter to exit):'))
+        y = int(input('Enter a number (or a letter to exit):'))
     except ValueError:
         quit()
 
-    print(opers[expr](x, y))
-    print('     ')
+    print(opers[expr](x, y), '\n')
