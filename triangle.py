@@ -1,9 +1,17 @@
 import math
+import re
 
 
 def distance(x1, y1, x2, y2):
     lenght = math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
     return lenght
+
+
+def output_result(area):
+    area = round(area, 1)
+    area = str(area)
+    area = re.sub(r'\.[0]', '', area)
+    print("Area of the triangle : ", area)
 
 
 vertex1x = int(input("Enter the x coordinate of vertex1: "))
@@ -19,4 +27,5 @@ side3 = distance(vertex3x, vertex3y, vertex1x, vertex1y)
 
 sp = (side1 + side2 + side3) / 2
 area = float(math.sqrt(sp * (sp - side1) * (sp - side2) * (sp - side3)))
-print("Area of the triangle :", area)
+
+output_result(area)

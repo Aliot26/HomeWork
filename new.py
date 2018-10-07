@@ -4,9 +4,17 @@ list_words = []
 
 
 def is_anagram(str1, str2):
+    temp1 = str1
+    temp2 = str2
     if str1 == str2:
         return False
+    """list_str1 = list(temp1)
+    list_str1.sorted()
+    list_str2 = list(temp2)
+    list_str2.sorted()"""
     return (sorted(str1) == sorted(str2))
+
+    #return (list_str1 == list_str2)
 
 
 def read_file():
@@ -22,3 +30,5 @@ def read_file():
 
 
 read_file()
+"""
+"""
