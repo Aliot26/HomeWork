@@ -1,6 +1,15 @@
 import math
 
 
+def main():
+    while True:
+        x = inputNumber()
+        op = inputOperation()
+        y = inputNumber()
+        answer = op(x, y)
+        print("Answer : ", answer)
+
+
 def add(x, y):
     return x + y
 
@@ -20,23 +29,22 @@ def div(x, y):
     return x / y
 
 
-while True:
-    try:
-        x = int(input('Enter a number (or a letter to exit):'))
-    except ValueError:
-        quit()
+def inputNumber():
+    while True:
+        try:
+            x = int(input('Enter a number (or a letter to exit):'))
+            return x
+        except ValueError:
+            quit()
 
+
+def inputOperation():
     opers = {'+': add, '-': sub, '*': mul, '/': div}
-
     expr = input('Enter an operation: ')
-
     if expr not in opers:
         print('Incorrect operation!')
         quit()
+    return opers[expr]
 
-    try:
-        y = int(input('Enter a number (or a letter to exit):'))
-    except ValueError:
-        quit()
 
-    print(opers[expr](x, y), '\n')
+main()

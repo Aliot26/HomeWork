@@ -2,8 +2,25 @@ import math
 import re
 
 
-def distance(x1, y1, x2, y2):
-    lenght = math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
+def main():
+    V1 = inputCoordinateVertex()
+    V2 = inputCoordinateVertex()
+    V3 = inputCoordinateVertex()
+    size1 = distance(V1, V2)
+    size2 = distance(V2, V3)
+    size3 = distance(V3, V1)
+    area = calcArea(size1, size2, size3)
+    output_result(area)
+
+
+def calcArea(a, b, c):
+    sp = (a + b + c) / 2
+    area = float(math.sqrt(sp * (sp - a) * (sp - b) * (sp - c)))
+    return area
+
+
+def distance(ver1, ver2):
+    lenght = math.sqrt((ver1[0] - ver2[0])**2 + (ver1[1] - ver2[1])**2)
     return lenght
 
 
@@ -14,18 +31,17 @@ def output_result(area):
     print("Area of the triangle : ", area)
 
 
-vertex1x = int(input("Enter the x coordinate of vertex1: "))
-vertex1y = int(input("Enter the y coordinate of vertex1: "))
-vertex2x = int(input("Enter the x coordinate of vertex2: "))
-vertex2y = int(input("Enter the y coordinate of vertex2: "))
-vertex3x = int(input("Enter the x coordinate of vertex3: "))
-vertex3y = int(input("Enter the y coordinate of vertex3: "))
+def inputCoordinateVertex():
+    print("Coordinate for vertex:")
+    try:
+        vertexX = int(input("Enter the x coordinate of vertex: "))
+    except ValueError:
+        print("Incorrect input")
+    try:
+        vertexY = int(input("Enter the y coordinate of vertex: "))
+    except ValueError:
+        print("Incorrect input")
+    return vertexX, vertexY
 
-side1 = distance(vertex1x, vertex1y, vertex2x, vertex2y)
-side2 = distance(vertex2x, vertex2y, vertex3x, vertex3y)
-side3 = distance(vertex3x, vertex3y, vertex1x, vertex1y)
 
-sp = (side1 + side2 + side3) / 2
-area = float(math.sqrt(sp * (sp - side1) * (sp - side2) * (sp - side3)))
-
-output_result(area)
+main()

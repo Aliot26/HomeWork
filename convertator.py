@@ -1,3 +1,9 @@
+def main():
+    number = inputNumber()
+    rnumber = convertr(number)
+    print(rnumber)
+
+
 def convertr(number):
     check(number)
     rnumber = ''
@@ -31,6 +37,13 @@ def check(number):
         quit()
 
 
-number = int(input("Write number less then 4000 : "))
+def inputNumber():
+    while True:
+        try:
+            number = int(input("Write number less then 4000 : "))
+            return number
+        except ValueError:
+            print("This is not a number")
 
-print(convertr(number))
+
+main()
