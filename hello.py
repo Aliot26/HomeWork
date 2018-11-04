@@ -1,14 +1,15 @@
-def main():
-    print('I am python')
-    name = input('Who are you? ')
-    if name == "":
-        hello()
-    else:
-        hello(name)
+import sys
+import argparse
 
 
-def hello(name='world'):
-    print("Hello, " + name)
+def createParser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--name', '-n', default="world")
+    return parser
 
 
-main()
+if __name__ == '__main__':
+    parser = createParser()
+    namespace = parser.parse_args(sys.argv[1:])
+
+print("Hello, {}!".format(namespace.name))

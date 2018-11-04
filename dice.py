@@ -7,7 +7,7 @@ def main():
     units = inputUnits()
     attakerDice = dice(units[0])
     defenderDice = dice(units[1])
-    print("")
+    print("")  #hide this
     print("Dice:")
     atDice = printDice(attakerDice)
     deDice = printDice(defenderDice)
